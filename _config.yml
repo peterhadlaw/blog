@@ -1,7 +1,6 @@
 # ----------------------- #
 #      Main Configs       #
 # ----------------------- #
-
 url: http://blog.peterhadlaw.com
 title: Peter Hadlaw
 subtitle: Some audacity involved.
@@ -60,7 +59,7 @@ default_asides: [asides/recent_posts.html, asides/github.html, asides/delicious.
 # page_asides:
 
 # Linklog settings
- permalink_label: "&infin;"
+permalink_label: "&infin;"
 permalink_label_feed: "&infin; Permalink"
 linklog_marker: "&rarr;"
 linklog_marker_position: after
@@ -87,7 +86,7 @@ google_plus_one_size: medium
 
 # Google Plus Profile
 # Hidden: No visible button, just add author information to search results
-googleplus_user: +PeterHadlaw
+googleplus_user: "+PeterHadlaw"
 googleplus_hidden: false
 
 # Pinboard
