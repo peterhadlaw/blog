@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Gnupg Privacy | Peter Hadlaw]]></title>
+  <link href="http://blog.peterhadlaw.com/categories/gnupg-privacy/atom.xml" rel="self"/>
+  <link href="http://blog.peterhadlaw.com/"/>
+  <updated>2014-12-13T08:35:50-06:00</updated>
+  <id>http://blog.peterhadlaw.com/</id>
+  <author>
+    <name><![CDATA[Peter Hadlaw]]></name>
+    <email><![CDATA[peter@peterhadlaw.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Using Your OpenPGP Key as Your SSH Key]]></title>
+    <link href="http://blog.peterhadlaw.com/2014/01/26/using-your-openpgp-key-as-your-ssh-key/"/>
+    <updated>2014-01-26T11:37:03-06:00</updated>
+    <id>http://blog.peterhadlaw.com/2014/01/26/using-your-openpgp-key-as-your-ssh-key</id>
+    <content type="html"><![CDATA[<p>What I was able to do is generate a gpg key for myself (you can also use an existing one)
+and then generate a subkey to use as an SSH key for my work. This setup allows me to unlock my key only
+when I actually need it and keeps my key unlocked for a specified TTL.</p>
+
+<!-- more -->
+
+
+<h2>How to use your OpenPGP (GnuPG) key as an SSH key and setup gpg-agent for SSH</h2>
+
+<ol>
+<li><p>If you haven&rsquo;t already, you need to generate your gpg key:</p>
+
+<p><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>gpg &ndash;gen-key</span></code></pre></td></tr></table></div></figure></p>
+
+<p>Follow the instructions and look into OpenPGP/GnuPG if you haven&rsquo;t already.</p></li>
+<li><p>Install &ldquo;monkeysphere&rdquo; (the following command is for debian based distros):</p>
+
+<p><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>apt-get install monkeysphere</span></code></pre></td></tr></table></div></figure></p>
+
+<p>Monkeysphere provides some useful functionality and tools for working with your
+gpg keys.</p></li>
+<li><p>Use monkeysphere to generate a subkey with gpg for use with SSH:</p>
+
+<p><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>monkeysphere g</span></code></pre></td></tr></table></div></figure></p>
+
+<p><strong>Note: You only need to do this once for the lifetime of your key - even
+across other machines.</strong></p>
+
+<p>This generates a subkey attached to your gpg key which will be trasfered whenever you
+migrate your key.</p></li>
+<li><p>Install the gnupg-agent (the following is for debian based distros):</p>
+
+<p><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>apt-get install gnupg-agent</span></code></pre></td></tr></table></div></figure></p></li>
+<li><p>Start the gpg-agent daemon along with ssh feature functionality:</p>
+
+<p><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>eval $(gpg-agent &ndash;daemon &ndash;enable-ssh-support)</span></code></pre></td></tr></table></div></figure></p>
+
+<p>If you want this to work accross logins and reboots you should add this to an
+init script such as your ~/.bashrc file or ~/.zshrc file.</p></li>
+<li><p>Have monkeysphere add the newly generated subkey to the ssh-agent:</p>
+
+<p><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>monkeysphere s</span></code></pre></td></tr></table></div></figure></p>
+
+<p>You should only need to do this once, not every login.
+If you migrate/ want to set this up on another computer you will need to run this once again.</p></li>
+<li><p>Check to see if it works by checking the ssh-agent for the available keys:</p>
+
+<p><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>ssh-add -L</span></code></pre></td></tr></table></div></figure></p></li>
+</ol>
+
+
+<p>You should see something that resembles a public ssh key that has a comment
+somewhere alongs the lines of what you commented your gpg key with.</p>
+
+<p>Your setup should now work on-demand and automatically. Everytime you first
+use ssh in a session, gpg-agent will ask you to unlock your key and then it should
+keep it unlocked until it expires based on its TTL.</p>
+]]></content>
+  </entry>
+  
+</feed>

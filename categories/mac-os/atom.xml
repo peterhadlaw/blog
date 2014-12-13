@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Mac Os | Peter Hadlaw]]></title>
+  <link href="http://blog.peterhadlaw.com/categories/mac-os/atom.xml" rel="self"/>
+  <link href="http://blog.peterhadlaw.com/"/>
+  <updated>2014-12-13T08:35:50-06:00</updated>
+  <id>http://blog.peterhadlaw.com/</id>
+  <author>
+    <name><![CDATA[Peter Hadlaw]]></name>
+    <email><![CDATA[peter@peterhadlaw.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[MacPorts Maintenance]]></title>
+    <link href="http://blog.peterhadlaw.com/2014/12/12/macports-maintenance/"/>
+    <updated>2014-12-12T22:03:42-06:00</updated>
+    <id>http://blog.peterhadlaw.com/2014/12/12/macports-maintenance</id>
+    <content type="html"><![CDATA[<h1>Regular MacPorts Maintenance</h1>
+
+<p>Clear, concise article containing a few tips to clean up after MacPorts.
+I always check this out while I wait for my definitions to selfupdate.</p>
+]]></content>
+  </entry>
+  
+</feed>

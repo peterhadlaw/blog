@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>http://blog.peterhadlaw.com/2014/12/12/macports-maintenance/</loc>
+    <lastmod>2014-12-12T22:03:42-06:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>http://blog.peterhadlaw.com/2014/01/26/using-your-openpgp-key-as-your-ssh-key/</loc>
+    <lastmod>2014-01-26T11:37:03-06:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>http://blog.peterhadlaw.com/blog/archives/</loc>
+    <lastmod>2014-12-13T08:35:50-06:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>http://blog.peterhadlaw.com/</loc>
+    <lastmod>2014-12-13T08:35:50-06:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+</urlset>
