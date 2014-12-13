@@ -10,7 +10,7 @@
 
   
   <meta name="description" content="What I was able to do is generate a gpg key for myself (you can also use an existing one)
-and then generate a subkey to use as an SSH key for my work &hellip;">
+and then generate a subkey to use as an SSH key for my &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -101,7 +101,10 @@ and then generate a subkey to use as an SSH key for my work &hellip;">
   </header>
 
 
-<div class="entry-content"><p>What I was able to do is generate a gpg key for myself (you can also use an existing one)
+<div class="entry-content">
+  
+
+  <p>What I was able to do is generate a gpg key for myself (you can also use an existing one)
 and then generate a subkey to use as an SSH key for my work. This setup allows me to unlock my key only
 when I actually need it and keeps my key unlocked for a specified TTL.</p>
 
@@ -165,6 +168,7 @@ somewhere alongs the lines of what you commented your gpg key with.</p>
 <p>Your setup should now work on-demand and automatically. Everytime you first
 use ssh in a session, gpg-agent will ask you to unlock your key and then it should
 keep it unlocked until it expires based on its TTL.</p>
+
 </div>
 
 
